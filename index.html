@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Мастерская кожаных изделий – три варианта главной</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Oranienbaum&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#efe8dc;--ink:#221913;--muted:#6d5f52;--line:rgba(34,25,19,.18);--accent:#a8572a}
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:400 16px/1.55 "Golos Text",sans-serif;min-height:100vh;
+    padding:clamp(24px,5vw,72px) clamp(16px,5vw,72px) 96px}
+  header{max-width:1200px;margin:0 auto clamp(32px,5vw,64px);display:grid;gap:16px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  h1{font:400 clamp(36px,6vw,76px)/1.02 "Oranienbaum",serif;letter-spacing:-.01em;max-width:16ch}
+  header p{max-width:60ch;color:var(--muted)}
+  .grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+  .card{display:grid;grid-template-rows:auto 1fr;color:inherit;text-decoration:none;border-top:1px solid var(--line);padding-top:16px;gap:16px}
+  .shot{aspect-ratio:16/10;overflow:hidden;background:#d9cfc0;position:relative}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .shot img{transform:scale(1.04)}
+  .card:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+  .letter{position:absolute;left:12px;top:12px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
+    background:var(--bg);font:400 20px/1 "Oranienbaum",serif}
+  h2{font:400 26px/1.15 "Oranienbaum",serif;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:15px}
+  .go{display:inline-block;margin-top:12px;font-weight:500;color:var(--accent);border-bottom:1px dashed currentColor}
+  footer{max-width:1200px;margin:clamp(40px,6vw,72px) auto 0;padding-top:16px;border-top:1px dashed var(--line);color:var(--muted);font-size:14px;display:grid;gap:6px}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <span class="eyebrow">Прототип · главная страница · 3 варианта</span>
+  <h1>Мастерская кожаных изделий</h1>
+  <p>Три направления дизайна для одного и того же наполнения: каталог, изделия в наличии и под заказ, рассказ о мастерской, доставка и заявка. Откройте каждый вариант и полистайте до конца – на компьютере и на телефоне</p>
+</header>
+
+<main class="grid">
+  <a class="card" href="a.html">
+    <div class="shot"><span class="letter">A</span><img src="docs/screens/a-cover.jpg" alt="Первый экран варианта A" loading="lazy"></div>
+    <div>
+      <h2>Красивая и современная</h2>
+      <p>Светлая журнальная вёрстка, много воздуха, спокойная подача. Сайт как каталог небольшого ателье</p>
+      <span class="go">Открыть вариант A</span>
+    </div>
+  </a>
+  <a class="card" href="b.html">
+    <div class="shot"><span class="letter">B</span><img src="docs/screens/b-cover.jpg" alt="Первый экран варианта B" loading="lazy"></div>
+    <div>
+      <h2>Удобная и креативная</h2>
+      <p>Выбор «в наличии или под заказ» прямо на первом экране, фильтры каталога и мини-конструктор своего изделия</p>
+      <span class="go">Открыть вариант B</span>
+    </div>
+  </a>
+  <a class="card" href="c.html">
+    <div class="shot"><span class="letter">C</span><img src="docs/screens/c-cover.jpg" alt="Первый экран варианта C" loading="lazy"></div>
+    <div>
+      <h2>WOW</h2>
+      <p>Тёмная кинематографичная страница: нить прошивает сайт по мере прокрутки, живая фактура кожи, галерея-лента</p>
+      <span class="go">Открыть вариант C</span>
+    </div>
+  </a>
+</main>
+
+<footer>
+  <span>Название «ШОВ», цены и фотографии – временные заглушки. Фото заменим на снимки реальных изделий мастера</span>
+  <span>Переключатель вариантов – в правом нижнем углу каждой страницы</span>
+</footer>
+</body>
+</html>

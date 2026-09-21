@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Мастерская кожаных изделий – вариант B</title>
+<meta name="description" content="Сумки, кошельки и брелки из натуральной кожи ручной работы. Готовые изделия и пошив под заказ">
+<meta name="theme-color" content="#F3ECDF">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/b.css">
+</head>
+<body>
+<a class="skip" href="#main">К содержимому</a>
+
+<!-- ============ ШАПКА ============ -->
+<header class="header" id="header">
+  <div class="header__in">
+    <a class="logo" href="#top" aria-label="На главную">
+      <span class="logo__tag"><span data-brand></span></span>
+      <span class="logo__tagline" data-brand-tagline></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <ul class="nav__list">
+        <li><a href="#catalog" data-go-reset>Каталог</a></li>
+        <li><a href="#catalog" data-go-avail="stock">В наличии</a></li>
+        <li><a href="#custom">Под заказ</a></li>
+        <li><a href="#about">О мастерской</a></li>
+        <li><a href="#delivery">Доставка и оплата</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <a class="btn btn--accent nav__cta" href="#order">Оставить заявку</a>
+    </nav>
+
+    <div class="header__tools">
+      <button class="cartbtn" type="button" id="cartBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="cart">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="cartbtn__label">Корзина</span>
+        <span class="cartbtn__count" data-cart-count aria-hidden="true">0</span>
+        <span class="sr" data-cart-sr>В корзине 0 изделий</span>
+      </button>
+      <button class="burger" type="button" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Корзина-поповер -->
+<div class="cart" id="cart" role="dialog" aria-modal="false" aria-labelledby="cartTitle" hidden>
+  <div class="cart__head">
+    <h2 class="cart__title" id="cartTitle">Корзина</h2>
+    <button class="iconbtn" type="button" data-cart-close aria-label="Закрыть корзину">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart__empty" id="cartEmpty">
+    <p>Пока пусто. Загляните в каталог – там есть готовые изделия и модели под заказ</p>
+    <a class="btn btn--green btn--sm" href="#catalog" data-cart-close data-go-reset>В каталог</a>
+  </div>
+  <ul class="cart__list" id="cartList"></ul>
+  <div class="cart__foot" id="cartFoot" hidden>
+    <p class="cart__total"><span>Итого</span><strong class="num" id="cartTotal">0 BYN</strong></p>
+    <button class="btn btn--accent btn--wide" type="button" id="cartOrder">Оформить заявку</button>
+    <p class="cart__note">Онлайн-оплаты нет: мастер свяжется с вами и всё подтвердит</p>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ ПЕРВЫЙ ЭКРАН: БЕНТО ============ -->
+<section class="hero" id="top" aria-label="Мастерская и выбор пути">
+  <div class="bento">
+
+    <div class="cell cell--lead stitch">
+      <p class="tag tag--on-dark"><span data-brand-tagline></span></p>
+      <h1 class="lead__title" data-split>Сумки, кошельки и брелки из кожи&nbsp;– шьём вручную</h1>
+      <p class="lead__text">Готовые изделия отправим за 1–2 дня. А если хочется своё – выберите кожу, нить и гравировку, сошьём за 7–14 дней</p>
+      <div class="lead__actions">
+        <a class="btn btn--accent" href="#catalog" data-go-reset>Смотреть каталог</a>
+        <a class="btn btn--line-light" href="#custom">Заказать своё изделие</a>
+      </div>
+    </div>
+
+    <figure class="cell cell--photo stitch">
+      <img src="https://images.unsplash.com/photo-1613482184972-f9c1022d0928?w=1300&h=1100&fit=crop&q=75&auto=format"
+           alt="Девушка с кожаной сумкой ручной работы" width="1300" height="1100" fetchpriority="high" decoding="async">
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="stampPath" d="M60 60m-41 0a41 41 0 1 1 82 0a41 41 0 1 1-82 0"/></defs>
+        <circle cx="60" cy="60" r="58" class="stamp__bg"/>
+        <circle cx="60" cy="60" r="54.500" class="stamp__seam"/>
+        <g class="stamp__spin"><text class="stamp__text"><textPath href="#stampPath" startOffset="0" textLength="250" lengthAdjust="spacing">ручная работа · натуральная кожа ·</textPath></text></g>
+        <path class="stamp__thread" d="M75 45c9-2 12 6 5 10-9 5-22-3-31 3-7 5-5 14 3 15"/>
+        <path class="stamp__needle" d="M42 78 76 44"/><ellipse class="stamp__eye" cx="73.500" cy="46.500" rx="4.200" ry="2" transform="rotate(-45 73.500 46.500)"/>
+      </svg>
+    </figure>
+
+    <a class="cell cell--path cell--stock stitch" href="#catalog" data-go-avail="stock">
+      <span class="tag tag--stock"><span><span class="hide-s">Отправим </span>за 1–2 дня</span></span>
+      <span class="path__title">В наличии</span>
+      <span class="path__text">Готовые изделия – можно забрать прямо сейчас</span>
+      <span class="path__foot"><span class="path__count num" data-count-avail="stock"></span>
+        <span class="arrowbtn" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+    </a>
+
+    <a class="cell cell--path cell--custom stitch" href="#custom">
+      <span class="tag tag--on-terra">Срок 7–14 дней</span>
+      <span class="path__title">Под заказ</span>
+      <span class="path__text">Сошьём по вашим пожеланиям: кожа, нить, гравировка</span>
+      <span class="path__foot"><span class="path__count">Собрать своё</span>
+        <span class="arrowbtn" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+    </a>
+
+    <nav class="cell cell--cats" aria-label="Категории">
+      <a class="cat" href="#catalog" data-go-cat="bags">
+        <img src="https://images.unsplash.com/photo-1691480250099-a63081ecfcb8?w=520&h=420&fit=crop&q=75&auto=format" alt="Кожаная сумка на светлом фоне" width="520" height="420" decoding="async">
+        <span class="cat__label"><span class="cat__name">Сумки</span><span class="cat__n num" data-count-cat="bags"></span></span>
+      </a>
+      <a class="cat" href="#catalog" data-go-cat="wallets">
+        <img src="https://images.unsplash.com/photo-1614330315994-efd5ea8163a1?w=520&h=420&fit=crop&q=75&auto=format" alt="Кожаный кошелёк в руках" width="520" height="420" decoding="async">
+        <span class="cat__label"><span class="cat__name">Кошельки</span><span class="cat__n num" data-count-cat="wallets"></span></span>
+      </a>
+      <a class="cat" href="#catalog" data-go-cat="keys">
+        <img src="https://images.unsplash.com/photo-1666723192375-ff8225b2485a?w=520&h=420&fit=crop&q=75&auto=format" alt="Кожаный брелок на инструментах" width="520" height="420" decoding="async">
+        <span class="cat__label"><span class="cat__name">Брелки</span><span class="cat__n num" data-count-cat="keys"></span></span>
+      </a>
+    </nav>
+
+  </div>
+</section>
+
+<!-- ============ ЛЕНТА ============ -->
+<div class="ribbon ribbon--green" aria-hidden="true">
+  <div class="ribbon__track" data-ribbon>
+    <span>ручная работа</span><i></i><span>натуральная кожа</span><i></i><span>сошьём под вас</span><i></i><span>свой цвет нити</span><i></i><span>гравировка</span><i></i><span>в наличии и под заказ</span><i></i>
+  </div>
+</div>
+
+<!-- ============ КАТАЛОГ ============ -->
+<section class="section catalog" id="catalog" aria-labelledby="catalogTitle">
+  <div class="wrap">
+    <div class="cathead reveal">
+      <div class="cathead__side">
+        <p class="tag tag--plain">Каталог</p>
+        <p class="found" aria-live="polite">Найдено: <strong class="num" id="foundN">15</strong></p>
+      </div>
+      <div class="cathead__main">
+        <h2 class="h2" id="catalogTitle">Выбирайте готовое или закажите под себя</h2>
+        <div class="filters" role="group" aria-label="Фильтры каталога">
+          <div class="chiprow">
+            <span class="chiprow__label" id="lblCat">Что</span>
+            <div class="chips" role="group" aria-labelledby="lblCat" data-filter="cat">
+              <button class="chip" type="button" data-value="all" aria-pressed="true">Все</button>
+              <button class="chip" type="button" data-value="bags" aria-pressed="false">Сумки</button>
+              <button class="chip" type="button" data-value="wallets" aria-pressed="false">Кошельки</button>
+              <button class="chip" type="button" data-value="keys" aria-pressed="false">Брелки</button>
+            </div>
+          </div>
+          <div class="chiprow">
+            <span class="chiprow__label" id="lblAvail">Когда</span>
+            <div class="chips" role="group" aria-labelledby="lblAvail" data-filter="avail">
+              <button class="chip" type="button" data-value="all" aria-pressed="true">Все</button>
+              <button class="chip chip--stock" type="button" data-value="stock" aria-pressed="false">В наличии</button>
+              <button class="chip chip--custom" type="button" data-value="custom" aria-pressed="false">Под заказ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="grid" id="grid" aria-label="Товары"></ul>
+
+    <div class="empty stitch" id="empty" hidden>
+      <p class="empty__title">Такого сейчас нет – но можем сшить</p>
+      <p class="empty__text">Расскажите, что вам нужно, и мастер предложит варианты кожи, нити и сроки</p>
+      <div class="empty__actions">
+        <a class="btn btn--accent" href="#custom">Сшить под заказ</a>
+        <button class="btn btn--line" type="button" data-go-reset>Сбросить фильтры</button>
+      </div>
+    </div>
+    <noscript><p class="noscript">Каталог показывается с включённым JavaScript</p></noscript>
+  </div>
+</section>
+
+<!-- ============ ПОД ЗАКАЗ: КОНСТРУКТОР ============ -->
+<section class="section custom" id="custom" aria-labelledby="customTitle">
+  <div class="wrap">
+    <div class="maker" id="maker">
+      <canvas class="maker__gl" id="makerGl" aria-hidden="true"></canvas>
+      <div class="maker__scrim" aria-hidden="true"></div>
+
+      <div class="maker__head reveal">
+        <p class="tag tag--on-dark">Под заказ · 7–14 дней</p>
+        <h2 class="h2 h2--light" id="customTitle">Соберите своё изделие</h2>
+        <p class="maker__lead">Выберите тип, кожу и нить – превью сразу покажет, как это будет смотреться. Детали и цену согласуем в переписке</p>
+      </div>
+
+      <form class="maker__panel stitch reveal" id="makerForm" aria-label="Конструктор изделия">
+        <fieldset class="opt">
+          <legend class="opt__legend"><span class="opt__n num">1</span>Что шьём</legend>
+          <div class="seg">
+            <label class="seg__item"><input type="radio" name="type" value="bag" checked><span>Сумка</span></label>
+            <label class="seg__item"><input type="radio" name="type" value="wallet"><span>Кошелёк</span></label>
+            <label class="seg__item"><input type="radio" name="type" value="key"><span>Брелок</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="opt">
+          <legend class="opt__legend"><span class="opt__n num">2</span>Цвет кожи <em class="opt__val" data-out="leather">коньяк</em></legend>
+          <div class="swatches">
+            <label class="sw" title="Коньяк"><input type="radio" name="leather" value="cognac" checked><span style="--c:#A5602B"></span><b class="sr">Коньяк</b></label>
+            <label class="sw" title="Шоколад"><input type="radio" name="leather" value="choco"><span style="--c:#4A2C1A"></span><b class="sr">Шоколад</b></label>
+            <label class="sw" title="Чёрный"><input type="radio" name="leather" value="black"><span style="--c:#1F1B18"></span><b class="sr">Чёрный</b></label>
+            <label class="sw" title="Бордо"><input type="radio" name="leather" value="bordo"><span style="--c:#6B1F2A"></span><b class="sr">Бордо</b></label>
+            <label class="sw" title="Оливка"><input type="radio" name="leather" value="olive"><span style="--c:#5C6138"></span><b class="sr">Оливка</b></label>
+            <label class="sw" title="Крем"><input type="radio" name="leather" value="cream"><span style="--c:#E3CFAE"></span><b class="sr">Крем</b></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="opt">
+          <legend class="opt__legend"><span class="opt__n num">3</span>Цвет нити <em class="opt__val" data-out="thread">кремовая</em></legend>
+          <div class="swatches swatches--thread">
+            <label class="sw" title="Кремовая"><input type="radio" name="thread" value="cream" checked><span style="--c:#F1E6D0"></span><b class="sr">Кремовая</b></label>
+            <label class="sw" title="Горчичная"><input type="radio" name="thread" value="mustard"><span style="--c:#D9A441"></span><b class="sr">Горчичная</b></label>
+            <label class="sw" title="Терракотовая"><input type="radio" name="thread" value="terra"><span style="--c:#C4582C"></span><b class="sr">Терракотовая</b></label>
+            <label class="sw" title="Чёрная"><input type="radio" name="thread" value="black"><span style="--c:#1F1B18"></span><b class="sr">Чёрная</b></label>
+          </div>
+        </fieldset>
+
+        <div class="opt">
+          <label class="opt__legend" for="engrave"><span class="opt__n num">4</span>Гравировка <em class="opt__val"><span class="num" id="engraveLeft">12</span> симв.</em></label>
+          <input class="field" id="engrave" name="engrave" type="text" maxlength="12" autocomplete="off" placeholder="Имя, инициалы или дата">
+        </div>
+      </form>
+
+      <div class="maker__stage stitch reveal" aria-live="polite">
+        <div class="stage__art" id="stageArt">
+          <svg class="product" id="product" viewBox="0 0 400 340" role="img" aria-labelledby="productDesc">
+            <title id="productDesc">Превью изделия</title>
+            <defs>
+              <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+                <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="1" stop-color="#000" stop-opacity=".2"/>
+              </linearGradient>
+            </defs>
+            <ellipse class="p-shadow" cx="200" cy="318" rx="130" ry="10"/>
+
+            <!-- Сумка -->
+            <g class="p p--bag" data-p="bag">
+              <path class="p-leather p-dark p-strap" d="M136 128c0-56 28-88 64-88s64 32 64 88" stroke-width="15" stroke-linecap="round"/>
+              <path class="p-thread" d="M136 126c0-54 28-86 64-86s64 32 64 86" fill="none"/>
+              <path class="p-leather" d="M84 118h232c8 0 14 5 15 13l19 150c2 13-8 25-22 25H72c-14 0-24-12-22-25l19-150c1-8 7-13 15-13Z"/>
+              <path class="p-sheen" d="M84 118h232c8 0 14 5 15 13l19 150c2 13-8 25-22 25H72c-14 0-24-12-22-25l19-150c1-8 7-13 15-13Z"/>
+              <path class="p-thread" d="M90 129h220c5 0 9 3 10 9l18 142c1 8-5 15-13 15H75c-8 0-14-7-13-15l18-142c1-6 5-9 10-9Z" fill="none"/>
+              <rect class="p-leather p-dark" x="122" y="112" width="28" height="34" rx="6"/>
+              <rect class="p-leather p-dark" x="250" y="112" width="28" height="34" rx="6"/>
+              <circle class="p-metal" cx="136" cy="134" r="4"/><circle class="p-metal" cx="264" cy="134" r="4"/>
+              <rect class="p-leather p-patch" x="128" y="196" width="144" height="54" rx="10"/>
+              <rect class="p-thread" x="134" y="202" width="132" height="42" rx="6" fill="none"/>
+              <text class="p-engrave" x="200" y="229" text-anchor="middle" data-engrave></text>
+            </g>
+
+            <!-- Кошелёк -->
+            <g class="p p--wallet" data-p="wallet" hidden>
+              <rect class="p-leather" x="56" y="84" width="288" height="200" rx="22"/>
+              <rect class="p-sheen" x="56" y="84" width="288" height="200" rx="22"/>
+              <rect class="p-thread" x="67" y="95" width="266" height="178" rx="14" fill="none"/>
+              <path class="p-leather p-dark" d="M56 106c0-12 10-22 22-22h244c12 0 22 10 22 22v52c0 0-40 30-144 30S56 158 56 158Z"/>
+              <path class="p-thread" d="M67 108c0-7 6-13 13-13h240c7 0 13 6 13 13v45c-8 6-46 25-133 25S75 159 67 153Z" fill="none"/>
+              <circle class="p-metal" cx="200" cy="170" r="11"/><circle class="p-metal-in" cx="200" cy="170" r="5"/>
+              <text class="p-engrave" x="200" y="246" text-anchor="middle" data-engrave></text>
+            </g>
+
+            <!-- Брелок -->
+            <g class="p p--key" data-p="key" hidden>
+              <circle class="p-ring" cx="200" cy="58" r="30"/>
+              <circle class="p-ring p-ring--2" cx="200" cy="58" r="30"/>
+              <path class="p-leather" d="M168 96h64c9 0 16 7 16 16v150c0 20-20 40-48 40s-48-20-48-40V112c0-9 7-16 16-16Z"/>
+              <path class="p-sheen" d="M168 96h64c9 0 16 7 16 16v150c0 20-20 40-48 40s-48-20-48-40V112c0-9 7-16 16-16Z"/>
+              <path class="p-thread" d="M171 106h58c5 0 9 4 9 9v146c0 15-16 31-38 31s-38-16-38-31V115c0-5 4-9 9-9Z" fill="none"/>
+              <circle class="p-hole" cx="200" cy="124" r="9"/><circle class="p-metal-ring" cx="200" cy="124" r="9"/>
+              <text class="p-engrave p-engrave--v" x="200" y="214" text-anchor="middle" data-engrave></text>
+            </g>
+          </svg>
+        </div>
+        <div class="stage__info">
+          <h3 class="stage__title">Ваша сборка</h3>
+          <p class="stage__sum" id="makerSum"></p>
+          <p class="stage__price">Ориентир по каталогу<strong class="num" id="makerPrice"></strong><span>Точную цену мастер назовёт до начала работы</span></p>
+          <button class="btn btn--accent btn--wide" type="button" id="makerSend">Отправить мастеру
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 шага -->
+    <div class="steps" id="steps">
+      <div class="steps__side reveal">
+        <p class="tag tag--plain">Как это работает</p>
+        <h2 class="h2">Как заказать своё изделие</h2>
+        <p class="steps__lead">Четыре шага – и у вас вещь, которой нет больше ни у кого</p>
+        <a class="btn btn--green" href="#order">Обсудить заказ</a>
+        <button class="linkbtn" type="button" data-go-avail="custom">Посмотреть модели под заказ</button>
+      </div>
+      <ol class="steps__list">
+        <li class="step reveal"><span class="step__n num" aria-hidden="true">01</span>
+          <div><h3 class="h3">Выбираете модель или присылаете идею</h3><p>Подойдёт модель из каталога, сборка из конструктора или просто фото вещи, которая нравится</p></div></li>
+        <li class="step reveal"><span class="step__n num" aria-hidden="true">02</span>
+          <div><h3 class="h3">Согласуем кожу, нить, гравировку и цену</h3><p>Покажем варианты кожи и ниток, подскажем, что лучше подойдёт. Цену называем до начала работы</p></div></li>
+        <li class="step reveal"><span class="step__n num" aria-hidden="true">03</span>
+          <div><h3 class="h3">Шьём вручную 7–14 дней, присылаем фото</h3><p>Пока изделие в работе, вы видите, как оно получается</p></div></li>
+        <li class="step reveal"><span class="step__n num" aria-hidden="true">04</span>
+          <div><h3 class="h3">Доставляем</h3><p>Европочтой или Белпочтой по Беларуси. Оплата – при получении или переводом</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЛЕНТА 2 ============ -->
+<div class="ribbon ribbon--terra" aria-hidden="true">
+  <div class="ribbon__track ribbon__track--rev" data-ribbon>
+    <span>сумки</span><i></i><span>кошельки</span><i></i><span>брелки</span><i></i><span>стежок за стежком</span><i></i><span>натуральная кожа</span><i></i><span>ручная работа</span><i></i>
+  </div>
+</div>
+
+<!-- ============ О МАСТЕРСКОЙ ============ -->
+<section class="section about" id="about" aria-labelledby="aboutTitle">
+  <div class="wrap">
+    <div class="about__top">
+      <div class="about__head reveal">
+        <p class="tag tag--plain">О мастерской</p>
+        <h2 class="h2 h2--xl" id="aboutTitle">Шью из натуральной кожи вручную – стежок за стежком</h2>
+      </div>
+      <div class="about__text reveal">
+        <p>Привет! Я шью сумки, кошельки и брелки из натуральной кожи. Всё делаю руками: раскраиваю, прошиваю, обрабатываю края</p>
+        <p>Мне важно, чтобы вещь подходила именно вам. Поэтому почти любую модель можно сшить в другом цвете, с другой нитью или с вашей гравировкой</p>
+        <p>Готовые изделия отправляю за 1–2 дня. Под заказ шью 7–14 дней и по ходу работы присылаю фото</p>
+      </div>
+    </div>
+
+    <div class="trio">
+      <figure class="trio__item stitch reveal">
+        <img src="https://images.unsplash.com/photo-1628483211662-9bcc692c46dc?w=900&h=1100&fit=crop&q=75&auto=format" alt="Кожаный кошелёк среди инструментов" width="900" height="1100" loading="lazy" decoding="async">
+        <figcaption class="tag tag--paper">В работе</figcaption>
+      </figure>
+      <figure class="trio__item trio__item--up stitch reveal">
+        <img src="https://images.unsplash.com/photo-1647502191516-68a4f8c74ed4?w=900&h=1100&fit=crop&q=75&auto=format" alt="Инструменты кожевника на светлом столе" width="900" height="1100" loading="lazy" decoding="async">
+        <figcaption class="tag tag--paper">Инструменты</figcaption>
+      </figure>
+      <figure class="trio__item stitch reveal">
+        <img src="https://images.unsplash.com/photo-1717156816269-89f5f968db8b?w=900&h=1100&fit=crop&q=75&auto=format" alt="Выкройки кожаных ремешков" width="900" height="1100" loading="lazy" decoding="async">
+        <figcaption class="tag tag--paper">Выкройки</figcaption>
+      </figure>
+    </div>
+
+    <dl class="ledger reveal">
+      <div><dt>Материал</dt><dd>Натуральная кожа</dd></div>
+      <div><dt>Работа</dt><dd>Полностью вручную</dd></div>
+      <div><dt>В наличии</dt><dd>Отправка за 1–2 дня</dd></div>
+      <div><dt>Под заказ</dt><dd>7–14 дней</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ ДОСТАВКА И ОПЛАТА ============ -->
+<section class="section delivery" id="delivery" aria-labelledby="deliveryTitle">
+  <div class="wrap">
+    <div class="delivery__head reveal">
+      <p class="tag tag--plain">Доставка и оплата</p>
+      <h2 class="h2" id="deliveryTitle">Отправляем по всей Беларуси</h2>
+    </div>
+    <div class="dgrid">
+      <article class="dcard dcard--green stitch reveal">
+        <svg class="dcard__ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 16 24 7l18 9v17L24 42 6 33V16Z"/><path d="M6 16l18 9 18-9M24 25v17M15 11.500l18 9"/></svg>
+        <h3 class="h3">Европочта</h3>
+        <p>Отправляем в отделения Европочты по Беларуси. Забираете посылку там, где удобно</p>
+        <span class="tag tag--on-dark">По Беларуси</span>
+      </article>
+      <article class="dcard dcard--paper stitch reveal">
+        <svg class="dcard__ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m7 14 17 13 17-13"/></svg>
+        <h3 class="h3">Белпочта</h3>
+        <p>Посылкой в любое отделение Белпочты по Беларуси</p>
+        <span class="tag tag--plain">По Беларуси</span>
+      </article>
+      <div class="dgrid__col">
+        <article class="dcard dcard--sand stitch reveal">
+          <h3 class="h3">Курьер и самовывоз</h3>
+          <p>Пока уточняем – напишите, подскажем, как можно сейчас</p>
+          <span class="tag tag--mustard">Уточняется</span>
+        </article>
+        <article class="dcard dcard--terra stitch reveal">
+          <h3 class="h3">Оплата</h3>
+          <ul class="pay"><li>При получении</li><li>Переводом</li></ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЗАЯВКА ============ -->
+<section class="section order" id="order" aria-labelledby="orderTitle">
+  <div class="wrap">
+    <div class="order__panel stitch">
+      <div class="order__copy reveal">
+        <p class="tag tag--on-dark">Заявка мастеру</p>
+        <h2 class="h2 h2--xl h2--light" id="orderTitle">Расскажите, что хотите сшить <span class="dim">– мастер ответит и всё подскажет</span></h2>
+        <p class="order__lead">Заявка ни к чему не обязывает. Оплаты на сайте нет: сначала обсуждаем, потом шьём</p>
+        <ul class="order__contacts">
+          <li><a href="tel:+375000000000">+375 (00) 000-00-00</a></li>
+          <li><a href="#contacts">@instagram</a></li>
+        </ul>
+      </div>
+
+      <form class="form stitch reveal" id="orderForm" novalidate>
+        <div class="form__row">
+          <label class="lbl" for="fName">Как вас зовут</label>
+          <input class="field" id="fName" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form__row">
+          <label class="lbl" for="fContact">Телефон, Telegram или Instagram</label>
+          <input class="field" id="fContact" name="contact" type="text" autocomplete="tel" required placeholder="+375… или @ник">
+        </div>
+        <div class="form__row">
+          <label class="lbl" for="fWish">Что хотите сшить</label>
+          <textarea class="field field--area" id="fWish" name="wish" rows="5" placeholder="Например: кошелёк цвета коньяк с кремовой нитью и инициалами"></textarea>
+          <p class="form__hint" id="formHint" hidden></p>
+        </div>
+        <p class="form__error" id="formError" role="alert" hidden>Заполните имя и контакт – иначе мастер не сможет ответить</p>
+        <button class="btn btn--accent btn--wide" type="submit">Отправить заявку</button>
+        <div class="form__done" id="formDone" role="status" hidden>
+          <svg class="form__check" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="m15 25 6 6 12-14"/></svg>
+          <p class="form__done-title">Спасибо, мастер свяжется с вами</p>
+          <button class="linkbtn" type="button" id="formAgain">Отправить ещё одну заявку</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ ПОДВАЛ ============ -->
+<footer class="footer" id="contacts">
+  <div class="wrap">
+    <div class="footer__panel">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="logo logo--light" href="#top" aria-label="Наверх">
+            <span class="logo__tag"><span data-brand></span></span>
+          </a>
+          <p class="footer__tagline"><span data-brand-tagline></span> ручной работы. Беларусь</p>
+          <ul class="footer__contacts">
+            <li><a href="tel:+375000000000">+375 (00) 000-00-00</a></li>
+            <li><a href="#contacts">@instagram</a></li>
+          </ul>
+        </div>
+        <nav class="footer__col" aria-label="Каталог">
+          <h3 class="footer__h">Каталог</h3>
+          <ul>
+            <li><a href="#catalog" data-go-cat="bags">Сумки</a></li>
+            <li><a href="#catalog" data-go-cat="wallets">Кошельки</a></li>
+            <li><a href="#catalog" data-go-cat="keys">Брелки</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Покупателям">
+          <h3 class="footer__h">Покупателям</h3>
+          <ul>
+            <li><a href="#catalog" data-go-avail="stock">В наличии</a></li>
+            <li><a href="#custom">Под заказ</a></li>
+            <li><a href="#delivery">Доставка и оплата</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Мастерская">
+          <h3 class="footer__h">Мастерская</h3>
+          <ul>
+            <li><a href="#about">О мастерской</a></li>
+            <li><a href="#order">Оставить заявку</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__meta">
+        <p>© 2026 <span data-brand></span></p>
+        <p>Цены на сайте – в белорусских рублях</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ МОБИЛЬНАЯ ТАБ-ПАНЕЛЬ ============ -->
+<nav class="tabbar" aria-label="Быстрая навигация">
+  <a class="tab" href="#catalog" data-go-reset>
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>
+    <span>Каталог</span></a>
+  <a class="tab" href="#catalog" data-go-avail="stock">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.500 12 4l8 4.500v7L12 20l-8-4.500v-7Z"/><path d="m9 12 2.200 2.200L15.500 10"/></svg>
+    <span>В наличии</span></a>
+  <a class="tab" href="#custom">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 16 8m0 0c1.500-1.500 3.500-1.500 4-1s.500 2.500-1 4m-3-3 3 3M5 19l-1.500 2.500L6 20"/></svg>
+    <span>Под заказ</span></a>
+  <button class="tab" type="button" id="tabCart" aria-haspopup="dialog" aria-controls="cart">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.200 11.200a2 2 0 0 1-2 1.800H8.200a2 2 0 0 1-2-1.800L5 8Z"/><path d="M9 8V6.500a3 3 0 0 1 6 0V8"/></svg>
+    <span>Корзина</span>
+    <b class="tab__badge num" data-cart-count aria-hidden="true">0</b></button>
+</nav>
+
+<script src="js/b.js"></script>
+<script src="js/brand.js"></script>
+<script src="js/switcher.js"></script>
+</body>
+</html>

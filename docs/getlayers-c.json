@@ -1,0 +1,49 @@
+{
+  "variant": "C",
+  "concept": "WOW – тёмный, кинематографичный, тактильный; нить прошивает страницу",
+  "target": "other (чистый HTML + CSS + ванильный JS)",
+  "style": {
+    "note": "Готовый Style из библиотеки не коммитился: палитра и шрифты заданы брифом варианта",
+    "palette": { "background": "#0D0A08", "ink": "#EFE6D8", "accent": "#C9772F", "accentHi": "#E7A35A", "leather": "#8A4B22", "lightSection": "#EFE6D8" },
+    "fonts": { "display": "Oswald 500–700", "accent": "Cormorant Garamond italic", "body": "Manrope" }
+  },
+  "assets": [
+    {
+      "id": "drape",
+      "type": "gradient",
+      "materialized": true,
+      "materializeCalls": 1,
+      "usedIn": "hero – canvas#drape на весь первый экран, позади контента",
+      "sourceRef": "gradients/drape.html",
+      "contract": { "mutable": ["skin"], "preserve": ["motion"] },
+      "howUsed": "GLSL и две пружины курсора (fingertip / wake) перенесены без изменений в js/c.js; панель настроек ассета не переносилась",
+      "configOverrides": {
+        "bgColor": "#0D0A08", "colorA": "#1C110A", "colorB": "#3A2114", "colorC": "#8A4B22", "colorD": "#E7A35A",
+        "foldFreq": 9.0, "foldDepth": 0.032, "drape": 0.3, "vignette": 0.18,
+        "maxDpr": "1.5 на десктопе, 1.25 на мобильных и тач-устройствах"
+      },
+      "entrance": "после открытия ворот лоадера 2.8 с анимируются только параметры CONFIG ambient / keyX / keySpread – «лампа включается и наезжает на ткань»",
+      "runtime": "lazy: пауза вне вьюпорта (IntersectionObserver); prefers-reduced-motion – один статичный кадр без цикла; без WebGL2 – CSS-градиент под канвасом"
+    }
+  ],
+  "notMaterialized": ["chatoyance – запасной вариант не понадобился, перекраска drape вышла чистой"],
+  "compositions": [
+    { "section": "Шапка", "selector": ".hdr", "composition": "altitude-nav", "note": "марка по центру, две группы ссылок по краям; справа добавлена корзина; до 1100px – бургер" },
+    { "section": "Лоадер", "selector": ".loader", "composition": "–", "note": "по revealChoreography, вариант без счётчика: нить прошивает линию; потолок 92% до готовности, MIN_VISIBLE 1200 мс, hard cap 4000 мс; готовность = шрифты + первый кадр шейдера; ворота открываются в начале ухода шторки; скролл отпускается после ухода" },
+    { "section": "1. Первый экран", "selector": "#hero", "composition": "ai-studio-hero", "note": "шейдер на весь кадр, гигантский заголовок сверху слева, парящая карточка с наклоном к курсору, внизу слева текст и пара кнопок, внизу справа строка" },
+    { "section": "2. Категории", "selector": "#cats", "composition": "lumora-services", "note": "ряд строк с волосяными линиями: индекс, огромное название, описание справа; за курсором плывёт фото" },
+    { "section": "3. В наличии / Под заказ", "selector": "#paths", "composition": "stride-showcase", "note": "колонки во всю высоту, подпись у основания, раскрытие по наведению (flex-grow)" },
+    { "section": "4. Витрина", "selector": "#vitrina", "composition": "ai-studio-portfolio", "note": "горизонтальная лента карточек на закреплённой сцене, уходит за правый край; на тач и до 900px – свайп со scroll-snap" },
+    { "section": "5. Процесс под заказ", "selector": "#process", "composition": "artist-process", "note": "5|7: закреплённый блок слева (фото со сменой по шагам), справа строки с огромными индексами; нить идёт между колонками" },
+    { "section": "6. О мастерской", "selector": "#about", "composition": "artist-statement + laocoon-gallery", "note": "абзац в размере заголовка без заголовка, курсивная подпись; кадр с clip-раскрытием справа со сдвигом вниз" },
+    { "section": "7. Бегущая строка", "selector": "#mq", "composition": "vexon-marquee", "note": "одна строка огромных слов от края до края; скорость и направление от скорости скролла" },
+    { "section": "8. Доставка и оплата", "selector": "#delivery", "composition": "vexon-showcase (card-grid)", "note": "4|8: метка слева, тезис справа, под ними ровный ряд карточек (4 вместо 3)" },
+    { "section": "9. Финал и форма", "selector": "#order", "composition": "marcus-vane-contact-footer + stride-contact", "note": "огромное приглашение слева, форма с подчёркнутыми полями справа; нить завязывается узелком у кнопки" },
+    { "section": "10. Подвал", "selector": ".ftr", "composition": "artist-footer", "note": "5|2|2|3 колонки, курсивный слоган, контурная марка во всю ширину, нижняя строка" }
+  ],
+  "motionSystem": {
+    "scroll": "одна шкала: S.y (реальный скролл) и S.sy (damp, k = 1 - exp(-10*dt), dt зажат до 0.05) в одном rAF; Lenis не подключался – нативный скролл",
+    "thread": "SVG-путь строится по реальной геометрии секций, монотонен по вертикали; тонкая нить – stroke-dashoffset, стежки – отдельные отрезки, появляются за иглой; пересчёт на resize и при изменении высоты документа",
+    "reducedMotion": "шейдер – статичный кадр, нить дорисована, лоадер – вуаль, витрина в режиме свайпа, цитата без затухания"
+  }
+}
